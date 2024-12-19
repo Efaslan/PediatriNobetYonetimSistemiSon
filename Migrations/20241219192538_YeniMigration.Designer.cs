@@ -12,8 +12,8 @@ using PediatriNobetYonetimSistemi.Data;
 namespace PediatriNobetYonetimSistemi.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20241219182821_SonMigration")]
-    partial class SonMigration
+    [Migration("20241219192538_YeniMigration")]
+    partial class YeniMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -438,6 +438,32 @@ namespace PediatriNobetYonetimSistemi.Migrations
                     b.HasIndex("HocaId");
 
                     b.ToTable("Randevu");
+                });
+
+            modelBuilder.Entity("PediatriNobetYonetimSistemi.Models.TakvimEvent", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("AllDay")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("End")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Start")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TakvimEvent");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

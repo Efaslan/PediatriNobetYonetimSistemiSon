@@ -8,7 +8,7 @@ namespace PediatriNobetYonetimSistemi.Data
 {
     public class DatabaseContext : IdentityDbContext<IdentityUser>
     {
-       
+
         public DbSet<Asistan> Asistan { get; set; }
         public DbSet<Hoca> Hoca { get; set; }
         public DbSet<Departman> Departman { get; set; }
@@ -16,12 +16,12 @@ namespace PediatriNobetYonetimSistemi.Data
         public DbSet<Randevu> Randevu { get; set; }
         public DbSet<AcilDurum> AcilDurum { get; set; }
         public DbSet<Admin> Admin { get; set; }
-
+        public DbSet<TakvimEvent> TakvimEvent { get; set; }
         public DbSet<HocaMusaitlik> HocaMusaitlik { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=EFA\\EFASQL;Integrated Security=True;Connect Timeout=30;Encrypt=False;Database=PediatriNobetDB;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-856BSBM\\EFASQL;Integrated Security=True;Connect Timeout=30;Encrypt=False;Database=PediatriNobetDB;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
         }
 
         public DatabaseContext(DbContextOptions<DatabaseContext> options)

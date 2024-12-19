@@ -1,0 +1,87 @@
+﻿@{
+    ViewData["Title"] = "Admin Paneli";
+}
+
+<div class="container text-center">
+    <h1 class="display-4">Admin Paneli</h1>
+    <p class="lead">Lütfen yönetmek istediğiniz kategoriyi seçin:</p>
+    <div class="row justify-content-center">
+        <div class="col-md-4 mb-5">
+            <div class="card admin-panel-card">
+                <div class="card-body">
+                    <h5 class="card-title">Asistan Yönetimi</h5>
+                    <div class="text-area-container">
+                        <p>Kadromuzdaki asistanlarımızı ve bilgilerini görüntüleyebilir, gerekli düzeltmeleri yapabilirsiniz.</p>
+                    </div>
+                    <a class="btn btn-primary mt-3" asp-controller="Asistan" asp-action="Index">Yönet</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card admin-panel-card">
+                <div class="card-body">
+                    <h5 class="card-title">Departman Yönetimi</h5>
+                    <div class="text-area-container">
+                        <p>Hastanemizin departmanlarını, tanıtımlarını ve yatak sayılarını uygun gördüğünüz şekilde düzenleyebilirsiniz.</p>
+                    </div>
+                    <a class="btn btn-primary mt-3" asp-controller="Departman" asp-action="Index">Yönet</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card admin-panel-card">
+                <div class="card-body">
+                    <h5 class="card-title">Hoca Yönetimi</h5>
+                    <div class="text-area-container">
+                        <p>Kadromuzdaki hocalarımızı ve bilgilerini görüntüleyebilir, gerekli düzeltmeleri yapabilirsiniz.</p>
+                    </div>
+                    <a class="btn btn-primary mt-3" asp-controller="Hoca" asp-action="Index">Yönet</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card admin-panel-card">
+                <div class="card-body">
+                    <h5 class="card-title">Randevu Yönetimi</h5>
+                    <div class="text-area-container">
+                        <p>Yardıma ihtiyaç duyan asistanlarımız ve buluşmak istedikleri hocalarımız için gün ve saat belirleyebilirsiniz.</p>
+                    </div>
+                    <a class="btn btn-primary mt-3" asp-controller="Randevu" asp-action="Index">Yönet</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card admin-panel-card">
+                <div class="card-body">
+                    <h5 class="card-title">Nöbet Yönetimi</h5>
+                    <div class="text-area-container">
+                        <p>Nöbet tutulması gerekilen departmanları belirleyebilir, asistanlarımızı yönlendirebilirsiniz.</p>
+                    </div>
+                    <a class="btn btn-primary mt-3" asp-controller="Nobet" asp-action="Index">Yönet</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card admin-panel-card">
+                <div class="card-body">
+                    <h5 class="card-title">Acil Durum Yönetimi</h5>
+                    <div class="text-area-container">
+                        <p>Karşılaşılan acil durumları kaydedebilir, gerekirse bütün sağlık çalışanı ekibimize bildirim gönderebilirsiniz.</p>
+                    </div>
+                    <a class="btn btn-primary mt-3" asp-controller="AcilDurum" asp-action="Acil">Yönet</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card admin-panel-card">
+                <div class="card-body">
+                    <h5 class="card-title">Hoca Müsaitlik Yönetimi</h5>
+                    <div class="text-area-container">
+                        <p>Hocalarımızın programlarını ve boş vakitlerini buradan düzenleyebilirsiniz.</p>
+                    </div>
+                    <a class="btn btn-primary mt-3" asp-controller="HocaMusaitlik" asp-action="Index">Yönet</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

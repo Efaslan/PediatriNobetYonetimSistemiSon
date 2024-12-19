@@ -1,0 +1,36 @@
+﻿@model PediatriNobetYonetimSistemi.Models.Departman
+
+@{
+    ViewData["Title"] = "Departman Düzenle";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h4>Departman</h4>
+<hr />
+
+<form asp-action="Edit" method="post">
+    <!-- Gizli DepartmanId alanını ekliyoruz -->
+    <input type="hidden" asp-for="DepartmanId" />
+
+    <div class="form-group">
+        <label asp-for="DepartmanAdi" class="control-label"></label>
+        <input asp-for="DepartmanAdi" class="form-control" />
+        <span asp-validation-for="DepartmanAdi" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="BolumTanimi" class="control-label"></label>
+        <textarea asp-for="BolumTanimi" class="form-control"></textarea>
+        <span asp-validation-for="BolumTanimi" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="YatakSayisi" class="control-label"></label>
+        <input asp-for="YatakSayisi" class="form-control" type="number" />
+        <span asp-validation-for="YatakSayisi" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+    <a href="@Url.Action("Index", "Departman")" class="btn btn-secondary">Geri</a>
+</form>

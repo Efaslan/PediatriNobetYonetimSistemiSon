@@ -1,0 +1,23 @@
+﻿@model PediatriNobetYonetimSistemi.Models.Departman
+
+@{
+    ViewData["Title"] = "Departman Sil";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h4>Departman Silme</h4>
+<hr />
+
+<p>Bu departmanı silmek istediğinize emin misiniz?</p>
+
+<form asp-action="Delete" method="post">
+    <div class="form-group">
+        <label asp-for="DepartmanAdi" class="control-label"></label>
+        <input asp-for="DepartmanAdi" class="form-control" readonly />
+        <input type="hidden" name="DepartmanId" value="@Model.DepartmanId" />
+    </div>
+
+    <button type="submit" class="btn btn-danger">Sil</button>
+    <a href="@Url.Action("Index", "Departman")" class="btn btn-secondary">Geri</a>
+</form>

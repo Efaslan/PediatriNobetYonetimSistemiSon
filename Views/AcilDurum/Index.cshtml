@@ -1,0 +1,47 @@
+﻿@model IEnumerable<PediatriNobetYonetimSistemi.Models.AcilDurum>
+
+@{
+    ViewData["Title"] = "Acil Durumlar";
+}
+
+<h2 class="text-center mb-4">Acil Durumlar</h2>
+
+@if (TempData["Mesaj"] != null)
+{
+        <div class="alert alert-success text-center">@TempData["Mesaj"]</div>
+}
+
+<div class="container">
+    <div class="row">
+        @foreach (var acilDurum in Model)
+        {
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow h-100">
+                        <div class="card-body">
+                            <h5 class="card-title text-danger">@acilDurum.Durum</h5>
+                            <p class="card-text">@acilDurum.Aciklama</p>
+                        @if (User.IsInRole("Admin"))
+                        {
+                                    <form asp-action="Delete" method="post" onsubmit="return confirm('Bu acil durumu silmek istediğinize emin misiniz?');">
+                                        <input type="hidden" name="id" value="@acilDurum.Id" />
+                                        <button type="submit" class="btn btn-danger">Sil</button>
+                                    </form>
+                        }
+                        else
+                        {
+                                    <button type="button" class="btn btn-warning" onclick="showLoginPopup()">Sil</button>
+                        }
+                        </div>
+                    </div>
+                </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+        <script>
+            function showLoginPopup() {
+                alert("Giriş yapmanız gerekiyor.");
+            }
+        </script>
+}

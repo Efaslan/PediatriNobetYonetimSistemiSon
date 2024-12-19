@@ -1,0 +1,35 @@
+﻿@model PediatriNobetYonetimSistemi.Models.HocaMusaitlik
+
+<h2 class="text-center mb-4">Müsaitlik Düzenle</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form asp-action="Edit">
+                <div class="form-group">
+                    <label for="HocaId">Hoca Seç</label>
+                    <select asp-for="HocaId" class="form-control" asp-items="ViewBag.HocaId"></select>
+                </div>
+
+                <div class="form-group">
+                    <label for="Tarih">Tarih</label>
+                    <input type="date" asp-for="Tarih" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label for="BaslamaSaati">Başlama Saati</label>
+                    <input type="time" asp-for="BaslamaSaati" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="BitisSaati">Bitiş Saati</label>
+                    <input type="time" asp-for="BitisSaati" class="form-control" />
+                </div>
+
+                <div class="form-group text-center mt-3">
+                    <button type="submit" class="btn btn-primary">Güncelle</button>
+                    <a href="@Url.Action("Index", "HocaMusaitlik")" class="btn btn-secondary">İptal</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

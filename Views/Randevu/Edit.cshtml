@@ -1,0 +1,30 @@
+﻿@model PediatriNobetYonetimSistemi.Models.Randevu
+
+<h2>Randevuyu Düzenle</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="Tarih" class="control-label"></label>
+        <input asp-for="Tarih" class="form-control" type="datetime-local" />
+        <span asp-validation-for="Tarih" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="HocaId" class="control-label">Hoca</label>
+        <select asp-for="HocaId" class="form-control" asp-items="@(ViewData["HocaId"] as SelectList)">
+        </select>
+        <span asp-validation-for="HocaId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="AsistanId" class="control-label">Asistan</label>
+        <select asp-for="AsistanId" class="form-control" asp-items="@(ViewData["AsistanId"] as SelectList)">
+        </select>
+        <span asp-validation-for="AsistanId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Geri</a>
+</form>

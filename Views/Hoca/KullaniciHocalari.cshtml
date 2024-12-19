@@ -1,0 +1,28 @@
+﻿@model IEnumerable<PediatriNobetYonetimSistemi.Models.Hoca>
+
+@{
+    ViewData["Title"] = "Hocalar";
+}
+
+<h2 class="text-center mb-5">Hocalarımız</h2>
+
+<div class="row">
+    @foreach (var hoca in Model)
+    {
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <!-- Profil Fotoğrafı -->
+                <img src="~/images/default-profile.png" class="card-img-top" alt="Hoca Profil Fotoğrafı">
+
+                <div class="card-body">
+                    <h5 class="card-title">@hoca.Ad @hoca.Soyad</h5>
+                    <p class="card-text">
+                        <strong>Departman:</strong> @hoca.Departman.DepartmanAdi <br />
+                        <strong>E-posta:</strong> @hoca.Mail
+                    </p>
+                </div>
+            </div>
+        </div>
+    
+    }
+</div>

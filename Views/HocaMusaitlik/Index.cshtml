@@ -1,0 +1,53 @@
+﻿@model IEnumerable<PediatriNobetYonetimSistemi.Models.HocaMusaitlik>
+
+<h2 class="text-center mb-4">Hocaların Müsaitlik Durumu</h2>
+
+<div class="container">
+    <div class="row">
+        @if (User.IsInRole("Admin"))
+
+        {
+            <div class="col-12 mb-3 text-start">
+                <a href="@Url.Action("Create", "HocaMusaitlik")" class="btn btn-primary">Yeni Müsaitlik Ekle</a>
+            </div>
+        }
+        @foreach (var musaitlik in Model)
+
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card shadow h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">@($"{musaitlik.Hoca.Ad} {musaitlik.Hoca.Soyad}")</h5>
+                        <p class="card-text">
+                            Tarih: @musaitlik.Tarih.ToString("yyyy-MM-dd")<br />
+                            Saat: @musaitlik.BaslamaSaati - @musaitlik.BitisSaati
+                        </p>
+                        @if (User.IsInRole("Admin"))
+
+                        {
+                            <form asp-action="Delete" method="post" onsubmit="return confirm('Bu müsaitlik kaydını silmek istediğinize emin misiniz?');">
+                                <input type="hidden" name="id" value="@musaitlik.Id" />
+                                <button type="submit" class="btn btn-danger">Sil</button>
+                            </form>
+                            <a href="@Url.Action("Edit", "HocaMusaitlik", new { id = musaitlik.Id })" class="btn btn-warning">Düzenle</a>
+                        }
+
+                        else
+
+                        {
+                            <button type="button" class="btn btn-warning" onclick="showLoginPopup()">Sil</button>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function showLoginPopup() {
+            alert("Giriş yapmanız gerekiyor.");
+        }
+    </script>
+}

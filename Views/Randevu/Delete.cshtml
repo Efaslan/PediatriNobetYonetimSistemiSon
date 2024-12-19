@@ -1,0 +1,14 @@
+﻿@model PediatriNobetYonetimSistemi.Models.Randevu
+
+<h2>Randevuyu Sil</h2>
+
+<h3>@Model.Hoca.Ad @Model.Hoca.Soyad ile @Model.Asistan.Ad @Model.Asistan.Soyad randevusunu silmek istediğinizden emin misiniz?</h3>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-danger">Sil</button>
+        <a href="@Url.Action("Index")" class="btn btn-secondary">İptal</a>
+    </div>
+</form>

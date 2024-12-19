@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Acil Durumlar";
+}
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow" style="width: 40rem; padding: 2rem;">
+        <div class="card-body">
+            <h2 class="card-title text-center text-danger" style="margin-bottom: 2rem;">Acil Durum Oluştur</h2>
+            <form asp-action="Yayinla" method="post">
+                <div class="mb-4">
+                    <label for="durum" class="form-label" style="font-size: 1.2rem;">Durum:</label>
+                    <input id="durum" name="durum" class="form-control" type="text" style="height: 3rem;" placeholder="Örn: Yangın, Deprem, vb." />
+                </div>
+                <div class="mb-4">
+                    <label for="mesaj" class="form-label" style="font-size: 1.2rem;">Açıklama:</label>
+                    <textarea id="mesaj" name="mesaj" class="form-control" rows="5" style="resize: none;" placeholder="Durumla ilgili detayları yazınız."></textarea>
+                </div>
+                <button type="submit" class="btn btn-danger w-100" style="padding: 0.75rem; font-size: 1.1rem;">Yayınla</button>
+            </form>
+            @if (ViewBag.Mesaj != null)
+            {
+                <div class="alert alert-success mt-4 text-center" style="font-size: 1rem;">@ViewBag.Mesaj</div>
+            }
+            <p class="mt-5 text-center fst-italic text-muted" style="font-size: 1rem;">
+                Girdiğiniz bilgiler bütün ekibimize derhal ulaştırılacaktır.
+            </p>
+        </div>
+    </div>
+</div>

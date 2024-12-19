@@ -1,0 +1,134 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.card {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+.card-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.card-text {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.card-img-top {
+  border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.carousel-item img {
+  height: 700px; 
+  object-fit: cover; 
+  width: 100%; 
+}
+.carousel-caption {
+  bottom: 20px; 
+  padding: 15px; 
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 5px; 
+}
+
+  .carousel-caption h5,
+  .carousel-caption p {
+    color: #ffffff; 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); 
+  }
+
+section.container.mt-5.text-center h2 {
+  margin-bottom: 20px; 
+}
+
+section.container.mt-5.text-center p.lead {
+  margin-bottom: 40px; 
+}
+
+.custom-card {
+  border: 1px solid #bbb; 
+  background-color: #fff; 
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+  .custom-card:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 8px 12px rgba(255, 255, 255, 0.2); 
+  }
+
+
+
+.admin-panel-card {
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+  .admin-panel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .admin-panel-card .card-body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .admin-panel-card .text-area-container {
+    margin: 10px 0;
+  }
+
+  .admin-panel-card .btn {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 10px;
+  }
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+  justify-content: space-evenly;
+}
+
+.col-md-4 {
+  margin-bottom: 30px;
+}
+
+textarea.form-control {
+  resize: none;
+}
+

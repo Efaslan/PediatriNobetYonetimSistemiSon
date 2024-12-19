@@ -1,0 +1,11 @@
+﻿@model PediatriNobetYonetimSistemi.Models.Hoca
+
+<h2>Hoca Sil</h2>
+
+<h3>@Model.Ad @Model.Soyad'ı silmek istediğinize emin misiniz?</h3>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Sil</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">İptal</a>
+</form>

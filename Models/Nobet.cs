@@ -7,13 +7,13 @@ namespace PediatriNobetYonetimSistemi.Models
     public class Nobet
     {
         [Key]
-        public int Id { get; set; } // Primary Key
+        public int Id { get; set; } 
         [ForeignKey("AsistanId")]
-        public int AsistanId { get; set; } // Foreign Key
-        public Asistan Asistan { get; set; } // Navigation property
+        public int AsistanId { get; set; } 
+        public Asistan Asistan { get; set; } 
         [ForeignKey("DepartmanId")]
-        public int DepartmanId { get; set; } // Foreign Key
-        public Departman Departman { get; set; } // Navigation property
+        public int DepartmanId { get; set; } 
+        public Departman Departman { get; set; } 
         [Required]
         public TimeSpan BaslamaSaati { get; set; } 
         [Required]

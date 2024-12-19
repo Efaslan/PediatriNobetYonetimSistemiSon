@@ -27,7 +27,7 @@ namespace PediatriNobetYonetimSistemi.Controllers
                 {
                     Title = $"Randevu: {r.Hoca.Ad + " " + r.Hoca.Soyad} ve {r.Asistan.Ad + " " + r.Asistan.Soyad}",
                     Start = r.Tarih,
-                    End = null, // Randevular için bitiş saati yok
+                    End = null, 
                     AllDay = false
                 })
                 .ToListAsync();
@@ -42,7 +42,7 @@ namespace PediatriNobetYonetimSistemi.Controllers
                 })
                 .ToListAsync();
 
-            var events = randevular.Concat(nobetler); // Artık aynı türde oldukları için Concat çalışır
+            var events = randevular.Concat(nobetler); 
 
             return Json(events);
         }

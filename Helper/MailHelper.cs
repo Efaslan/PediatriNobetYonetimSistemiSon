@@ -16,7 +16,6 @@ namespace PediatriNobetYonetimSistemi.Helper
 
         public MailHelper(IConfiguration configuration)
         {
-            // appsettings.json'dan SMTP ayarlarını al
             _smtpHost = configuration["Smtp:Host"];
             _smtpPort = int.Parse(configuration["Smtp:Port"]);
             _smtpUsername = configuration["Smtp:Username"];
@@ -45,7 +44,7 @@ namespace PediatriNobetYonetimSistemi.Helper
                 using (var client = new SmtpClient())
                 {
                     client.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-                    client.Authenticate("wpodevpy@gmail.com", "fdro hffq mkky qbdd\r\n"); // Uygulama şifresini kullanın
+                    client.Authenticate("wpodevpy@gmail.com", "fdro hffq mkky qbdd\r\n");
                     client.Send(message);
                     client.Disconnect(true);
                 }

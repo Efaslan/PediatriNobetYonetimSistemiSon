@@ -6,7 +6,6 @@
 
 <h2 class="text-center mb-5">Departmanlarımız</h2>
 
-<!-- Genel Bilgilendirme -->
 <div class="text-center mb-4">
     <p class="fs-5">3 departmanımızda <strong>15 asistan</strong>, <strong>15 hocamız</strong> ile toplam <strong>30 sağlık çalışanı</strong> olarak hizmetinizdeyiz.</p>
 </div>
@@ -16,13 +15,10 @@
     {
         <div class="col-md-4">
             <div class="card mb-4 shadow-sm" style="background-color:@GetBackgroundColor(departman.DepartmanAdi)">
-                <!-- Resim Alanı -->
                 <img src="@GetImagePath(departman.DepartmanAdi)" class="card-img-top" alt="@departman.DepartmanAdi Resmi" style="height: 200px; object-fit: cover;">
 
                 <div class="card-body text-white">
-                    <!-- Departman Adı -->
                     <h4 class="card-title text-center">@departman.DepartmanAdi</h4>
-                    <!-- Tanım -->
                     <p class="card-text">@departman.BolumTanimi</p>
                 </div>
             </div>

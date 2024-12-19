@@ -16,8 +16,7 @@ namespace PediatriNobetYonetimSistemi.Controllers
             _context = context;
         }
 
-        // GET: Randevu
-        [AllowAnonymous] // Randevu listesini herkes görebilir
+        [AllowAnonymous] 
         public IActionResult Index()
         {
             var randevular = _context.Randevu
@@ -30,11 +29,10 @@ namespace PediatriNobetYonetimSistemi.Controllers
             return View(randevular);
         }
 
-        // GET: Randevu/Create
+        
         [AllowAnonymous]
         public IActionResult Create()
         {
-            // Hocaların ve Asistanların departmanla birlikte listelenmesi
             ViewData["HocaId"] = new SelectList(_context.Hoca
                 .Select(h => new
                 {
@@ -54,7 +52,6 @@ namespace PediatriNobetYonetimSistemi.Controllers
             return View();
         }
 
-        // POST: Randevu/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AllowAnonymous]
@@ -65,7 +62,6 @@ namespace PediatriNobetYonetimSistemi.Controllers
                 return RedirectToAction(nameof(Index));
         }
 
-        // GET: Randevu/Edit/5
         [AllowAnonymous]
         public async Task<IActionResult> Edit(int? id)
         {
@@ -74,19 +70,17 @@ namespace PediatriNobetYonetimSistemi.Controllers
             var randevu = await _context.Randevu.Include(r => r.Hoca).Include(r => r.Asistan).FirstOrDefaultAsync(r => r.Id == id);
             if (randevu == null) return NotFound();
 
-            // Hoca ve Asistan için, Departman adıyla birlikte adları birleştirerek ViewData'ya atıyoruz
             ViewData["HocaId"] = new SelectList(_context.Hoca
                 .Include(h => h.Departman)  // Departman bilgisini almak için Include kullanıyoruz
                 .Select(h => new { h.Id, Name = $"{h.Departman.DepartmanAdi} - {h.Ad} {h.Soyad}" }), "Id", "Name", randevu.HocaId);
 
             ViewData["AsistanId"] = new SelectList(_context.Asistan
-                .Include(a => a.Departman)  // Departman bilgisini almak için Include kullanıyoruz
+                .Include(a => a.Departman)  
                 .Select(a => new { a.Id, Name = $"{a.Departman.DepartmanAdi} - {a.Ad} {a.Soyad}" }), "Id", "Name", randevu.AsistanId);
 
             return View(randevu);
         }
 
-        // POST: Randevu/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AllowAnonymous]
@@ -101,7 +95,6 @@ namespace PediatriNobetYonetimSistemi.Controllers
            
         }
 
-        // GET: Randevu/Delete/5
         [AllowAnonymous]
         public async Task<IActionResult> Delete(int? id)
         {
@@ -114,7 +107,6 @@ namespace PediatriNobetYonetimSistemi.Controllers
             return View(randevu);
         }
 
-        // POST: Randevu/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [AllowAnonymous]

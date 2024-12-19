@@ -12,13 +12,11 @@ namespace PediatriNobetYonetimSistemi.Controllers
             _signInManager = signInManager;
         }
 
-        // GET: Login
         public IActionResult Index()
         {
             return View();
         }
 
-        // POST: Login
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(string email, string password)
@@ -29,7 +27,7 @@ namespace PediatriNobetYonetimSistemi.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home"); // Giriş başarılıysa yönlendirme
+                    return RedirectToAction("Index", "Home");
                 }
 
                 ModelState.AddModelError(string.Empty, "Geçersiz giriş denemesi.");
@@ -38,7 +36,6 @@ namespace PediatriNobetYonetimSistemi.Controllers
             return View();
         }
 
-        // Logout
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();

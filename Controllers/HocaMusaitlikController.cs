@@ -16,7 +16,6 @@ namespace PediatriNobetYonetimSistemi.Controllers
             _context = context;
         }
 
-        // GET: HocaMusaitlik
         [AllowAnonymous]
         public IActionResult Index()
         {
@@ -27,7 +26,6 @@ namespace PediatriNobetYonetimSistemi.Controllers
             return View(musaitlikler);
         }
 
-        // GET: HocaMusaitlik/Create
         [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
@@ -42,7 +40,6 @@ namespace PediatriNobetYonetimSistemi.Controllers
             return View();
         }
 
-        // POST: HocaMusaitlik/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
@@ -54,7 +51,6 @@ namespace PediatriNobetYonetimSistemi.Controllers
                 return RedirectToAction(nameof(Index));
         }
 
-        // GET: HocaMusaitlik/Delete/5
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
@@ -69,7 +65,6 @@ namespace PediatriNobetYonetimSistemi.Controllers
             return View(musaitlik);
         }
 
-        // POST: HocaMusaitlik/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
@@ -84,8 +79,7 @@ namespace PediatriNobetYonetimSistemi.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-
-        // GET: HocaMusaitlik/Edit/5
+        
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
@@ -106,7 +100,6 @@ namespace PediatriNobetYonetimSistemi.Controllers
             return View(musaitlik);
         }
 
-        // POST: HocaMusaitlik/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]

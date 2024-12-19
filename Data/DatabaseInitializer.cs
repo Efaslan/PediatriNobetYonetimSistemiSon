@@ -11,7 +11,7 @@ namespace PediatriNobetYonetimSistemi.Data
             string[] roleNames = { "Admin", "User" };
             foreach (var roleName in roleNames)
             {
-                var roleExist = await roleManager.RoleExistsAsync(roleName);  // Hata burada çözülmüş olacak
+                var roleExist = await roleManager.RoleExistsAsync(roleName);  
                 if (!roleExist)
                 {
                     await roleManager.CreateAsync(new IdentityRole(roleName));
@@ -26,7 +26,7 @@ namespace PediatriNobetYonetimSistemi.Data
             if (adminUser == null)
             {
                 adminUser = new IdentityUser { UserName = "admin@admin.com", Email = "admin@admin.com" };
-                await userManager.CreateAsync(adminUser, "AdminPassword123!");  // Güçlü bir şifre belirleyin
+                await userManager.CreateAsync(adminUser, "AdminPassword123!");  
             }
 
             if (!await userManager.IsInRoleAsync(adminUser, "Admin"))

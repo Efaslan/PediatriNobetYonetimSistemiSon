@@ -16,8 +16,7 @@ namespace PediatriNobetYonetimSistemi.Controllers
             _context = context;
         }
 
-        // GET: Nobet
-        [AllowAnonymous] // Nöbet listesini herkes görebilir
+        [AllowAnonymous] 
         public async Task<IActionResult> Index()
         {
             var nobetler = await _context.Nobet
@@ -29,7 +28,6 @@ namespace PediatriNobetYonetimSistemi.Controllers
             return View(nobetler);
         }
 
-        // GET: Nobet/Create
         [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
@@ -47,7 +45,6 @@ namespace PediatriNobetYonetimSistemi.Controllers
             return View();
         }
 
-        // POST: Nobet/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
@@ -61,7 +58,6 @@ namespace PediatriNobetYonetimSistemi.Controllers
             
         }
 
-        // GET: Nobet/Edit/5
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
@@ -83,7 +79,6 @@ namespace PediatriNobetYonetimSistemi.Controllers
             return View(nobet);
         }
 
-        // POST: Nobet/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
@@ -100,7 +95,6 @@ namespace PediatriNobetYonetimSistemi.Controllers
             
         }
 
-        // GET: Nobet/Delete/5
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
@@ -115,7 +109,6 @@ namespace PediatriNobetYonetimSistemi.Controllers
             return View(nobet);
         }
 
-        // POST: Nobet/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]

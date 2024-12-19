@@ -16,15 +16,14 @@ namespace PediatriNobetYonetimSistemi.Controllers
             _context = context;
         }
 
-        // GET: Departman (Public erişim veya kullanıcı rolü için)
-        [AllowAnonymous] // Herkes görebilir
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Departman.ToListAsync());
         }
 
-        // GET: Departman/Details/5 (Public erişim veya kullanıcı rolü için)
-        [AllowAnonymous] // Herkes görebilir
+        
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null) return NotFound();
@@ -35,7 +34,7 @@ namespace PediatriNobetYonetimSistemi.Controllers
             return View(departman);
         }
 
-        // GET: Departman/Create (Admin rolü gerektirir)
+       
         [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
@@ -43,7 +42,7 @@ namespace PediatriNobetYonetimSistemi.Controllers
             return View();
         }
 
-        // POST: Departman/Create (Admin rolü gerektirir)
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
@@ -58,7 +57,7 @@ namespace PediatriNobetYonetimSistemi.Controllers
             return View(departman);
         }
 
-        // GET: Departman/Edit/5 (Admin rolü gerektirir)
+        
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
@@ -70,7 +69,7 @@ namespace PediatriNobetYonetimSistemi.Controllers
             return View(departman);
         }
 
-        // POST: Departman/Edit/5 (Admin rolü gerektirir)
+        
 
         [HttpGet]
         public IActionResult Edit(int id)
@@ -85,28 +84,24 @@ namespace PediatriNobetYonetimSistemi.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id, Departman departman)
         {
-            // id ile departman.DepartmanId'nin eşleşmesini kontrol ediyoruz
             if (id != departman.DepartmanId) return NotFound();
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    // Veritabanındaki departman nesnesini buluyoruz
                     var departmanToUpdate = await _context.Departman.FindAsync(id);
                     if (departmanToUpdate == null)
                     {
                         return NotFound();
                     }
 
-                    // Güncellenen departman alanlarını mevcut departmanla eşliyoruz
                     departmanToUpdate.DepartmanAdi = departman.DepartmanAdi;
                     departmanToUpdate.BolumTanimi = departman.BolumTanimi;
                     departmanToUpdate.YatakSayisi = departman.YatakSayisi;
 
-                    // Güncellenmiş departmanı veritabanına kaydediyoruz
                     _context.Departman.Update(departmanToUpdate);
-                    await _context.SaveChangesAsync(); // Değişiklikleri kaydediyoruz
+                    await _context.SaveChangesAsync(); 
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -119,12 +114,11 @@ namespace PediatriNobetYonetimSistemi.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index)); // Başarıyla güncellenen departmanı listeye yönlendiriyoruz
+                return RedirectToAction(nameof(Index)); 
             }
-            return View(departman); // Eğer model geçerli değilse formu tekrar render et
+            return View(departman); 
         }
 
-        // GET: Departman/Delete/5 (Admin rolü gerektirir)
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
@@ -136,7 +130,6 @@ namespace PediatriNobetYonetimSistemi.Controllers
             return View(departman);
         }
 
-        // POST: Departman/Delete/5 (Admin rolü gerektirir)
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]

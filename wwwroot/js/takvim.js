@@ -2,20 +2,20 @@
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth', // Varsayılan görünüm
+        initialView: 'dayGridMonth',
         headerToolbar: {
-            left: 'prev,next today', // Geri, İleri ve Bugün butonları
-            center: 'title', // Başlık (ör. Aralık 2024)
-            right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek' // Görünümler
+            left: 'prev,next today',
+            center: 'title', 
+            right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek' 
         },
         buttonText: {
-            today: 'Bugün',         // "Today" yerine "Bugün"
-            month: 'Ay',           // "Month" yerine "Ay"
-            week: 'Hafta',         // "Week" yerine "Hafta"
-            day: 'Gün',            // "Day" yerine "Gün"
-            list: 'Ajanda'         // "List" yerine "Ajanda"
+            today: 'Bugün',         
+            month: 'Ay',           
+            week: 'Hafta',         
+            day: 'Gün',            
+            list: 'Ajanda'         
         },
-        locale: 'tr', // Türkçe dil desteği
+        locale: 'tr', 
         views: {
             timeGridDay: {
                 titleFormat: { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' },
@@ -27,18 +27,18 @@
                 dayHeaderFormat: { weekday: 'long' }
             }
         },
-        events: '/Takvim/GetEvents', // Etkinliklerin çekileceği yer
-        editable: true, // Sürükle bırak özelliği
-        selectable: true, // Tarih seçilebilir
+        events: '/Takvim/GetEvents', 
+        editable: true, 
+        selectable: true, 
         nowIndicator: true,
         height: 'auto',
         themeSystem: 'standard',
 
 
         eventDidMount: function (info) {
-            info.el.style.whiteSpace = 'normal'; // Satır geçişine izin ver
-            info.el.style.wordWrap = 'break-word'; // Uzun kelimeleri böl
-            info.el.style.lineHeight = '1.2'; // Satır yüksekliğini optimize et
+            info.el.style.whiteSpace = 'normal'; 
+            info.el.style.wordWrap = 'break-word'; 
+            info.el.style.lineHeight = '1.2'; 
         }
     });
 

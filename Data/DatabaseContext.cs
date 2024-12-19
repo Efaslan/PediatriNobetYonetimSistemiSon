@@ -25,7 +25,7 @@ namespace PediatriNobetYonetimSistemi.Data
         }
 
         public DatabaseContext(DbContextOptions<DatabaseContext> options)
-            : base(options)  // DbContextOptions'u base class'a gönderiyoruz
+            : base(options)  
         {
         }
     }

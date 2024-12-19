@@ -33,7 +33,6 @@ namespace PediatriNobetYonetimSistemi.Controllers
                 return View("Acil");
             }
 
-            // Acil durumu veritabanına kaydet
             var acilDurum = new AcilDurum
             {
                 Durum = durum,
@@ -43,14 +42,12 @@ namespace PediatriNobetYonetimSistemi.Controllers
             _context.AcilDurum.Add(acilDurum);
             _context.SaveChanges();
 
-            // E-posta adreslerini al
             var emailList = _context.Hoca
                 .Select(h => h.Mail)
                 .Concat(_context.Asistan.Select(a => a.Mail))
                 .Where(email => !string.IsNullOrEmpty(email))
                 .ToList();
 
-            // Mail gönderimi
             foreach (var email in emailList)
             {
                 _mailHelper.Gonder(email, $"Acil Durum: {durum}", mesaj);
